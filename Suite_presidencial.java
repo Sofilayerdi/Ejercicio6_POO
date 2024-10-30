@@ -1,15 +1,14 @@
-public class Habitacion_ejecutiva implements Habitacion{
+public class Suite_presidencial implements Habitacion{
     private int tarifaBase;
-    private int serviciosDesayuno;
-    private int serviciosLavanderia;
+    private int serviciosComida;
+    private int serviciosVIP;
     
-    public Habitacion_ejecutiva(){
+    public Suite_presidencial(){
         this.tarifaBase = 250;
         this.serviciosComida = 50;
         this.serviciosVIP = 30;
     }
 
-    
     public int getTarifaBase() {
         return tarifaBase;
     }
@@ -23,11 +22,11 @@ public class Habitacion_ejecutiva implements Habitacion{
     }
 
     @Override
-    public int calcular_costo(int noches);{
-        int costo_base = tarifaBase * noches;
-        int serviviosC = serviciosComida * noches;
+    public int calcular_costo(int noches, int personas){
+        int costo_base = (tarifaBase * noches);
+        int serviciosC = (serviciosComida * noches);
 
-        int costo_total = costo_base + serviciosC + serviciosVIP;
+        int costo_total = (costo_base + serviciosC + serviciosVIP);
 
         return costo_total;
     }
