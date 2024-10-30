@@ -7,15 +7,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Reservas{
+public class Reservas {
     private String nombre;
-    private String habitacion; 
+    private String habitacion;
     private int noches;
     private int personas;
     private int costoTotal;
     private LocalDate fecha;
 
-    public Reservas(String nombre, String habitacion, int noches, int personas, LocalDate fecha, int costoTotal){
+    public Reservas(String nombre, String habitacion, int noches, int personas, LocalDate fecha, int costoTotal) {
         this.nombre = nombre;
         this.habitacion = habitacion;
         this.noches = noches;
@@ -27,23 +27,28 @@ public class Reservas{
     public String getNombre() {
         return nombre;
     }
+
     public String getHabitacion() {
         return habitacion;
     }
+
     public int getNoches() {
         return noches;
     }
+
     public int getPersonas() {
         return personas;
     }
+
     public int getCostoTotal() {
         return costoTotal;
     }
+
     public LocalDate getFecha() {
         return fecha;
     }
 
-    public ArrayList<Reservas> listaReservas(){
+    public static ArrayList<Reservas> listaReservas() {
         String archivoCSV = "Reservas.csv";
 
         ArrayList<Reservas> reservas = new ArrayList<>();
@@ -74,7 +79,7 @@ public class Reservas{
     public void GuardarReservas(List<Reservas> reservas) {
         String archivoCSV = "Reservas.csv";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        try (FileWriter writer = new FileWriter(archivoCSV)) {
+        try (FileWriter writer = new FileWriter(archivoCSV, true)) {
             for (Reservas reserva : reservas) {
                 writer.append(reserva.getNombre());
                 writer.append(",");
@@ -93,6 +98,5 @@ public class Reservas{
 
         }
     }
-
 
 }
